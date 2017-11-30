@@ -1,5 +1,5 @@
 # Terraform On Azure
-A few examples of using Terraform on Azure for your Infrastructure as Code needs.
+A few examples of using Terraform on Azure for your Infrastructure as Code needs.  In this walkthrough we will setup Terraform integration with Azure and deploy a simple 2-tier application using Azure Container Instances and CosmosDB as the backing store.
 
 ## Setup your environment
 
