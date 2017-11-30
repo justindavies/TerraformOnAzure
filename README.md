@@ -81,7 +81,7 @@ resource "azurerm_resource_group" "terraformonazure" {
 }
 ```
 
-## Initialise Terraform
+### Initialise Terraform
 
 ```
 ➜  create_resource_groups (master) ✗ ~/terraform/terraform init
@@ -111,7 +111,7 @@ rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
 ```
 
-## The Terraform Plan
+### The Terraform Plan
 It's always good to carry out a dry run of any infrastructure instantiation so that you can see what Terraform *would* do when you apply the configuration.
 
 To do this, run the **terraform plan** command:
@@ -147,7 +147,7 @@ can't guarantee that exactly these actions will be performed if
 "terraform apply" is subsequently run.
 ```
 
-## Let's Terraform
+### Let's Terraform
 
 ```
 ➜  create_resource_groups (master) ✗ ~/terraform/terraform apply
@@ -161,7 +161,7 @@ Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
 
 
-## Check your resources
+### Check your resources
 
 ```
 ➜  create_resource_groups (master) ✗ az group show -n terraformonazure
@@ -171,14 +171,14 @@ eastus     terraformonazure
 ```
 
 
-# Deploy a 2-Tier Architecture
+## Deploy a 2-Tier Architecture
 For this walkthrough, we will use a Docker [image](https://hub.docker.com/r/inklin/iexcompanies/) that will pull some company information for the FANG group of companies, plus Microsoft.
 
 The image will be deployed into an Azure Container Instance, and will be published via a Public IP address.
 
 The data from IEX will be saved into a newly instantiated CosmosDB instance on the first run (to simulate a new test deployment of the code), and any calls the the HTTP endpoint will display a list of the last prices, along with some other data about the stocks.
 
-## Setup the CosmosDB Terraform script
+### Setup the CosmosDB Terraform script
 
 Create a new file called cosmosdb.tf within the same directory as your variables.tf and resource-group.tf files.
 
@@ -346,7 +346,7 @@ azurerm_cosmosdb_account.cosmosdb: Creation complete after 2m9s (ID: /subscripti
 Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
 ```
 
-## Setup IEX Companies ACI deployment
+### Setup IEX Companies ACI deployment
 Now that We have a resource group, and Cosmos up and running, it's time to define the Container Instance with the Flask app.  Create a file called aci.tf within the same directory as our previous examples.
 
 ```
@@ -383,7 +383,7 @@ The FQDN of any CosmosDB instance is of the form *dbname*:*PRIMARY_KEY*@*dbname*
 
 Armed with this knowledge, we are able to generate and use the connection string at instantiation time making the entire deployment dynamic.
 
-### Deploy the Container Instance
+#### Deploy the Container Instance
 We should have a pretty good idea at this point as to what Terraform would plan to do (i.e. only deploy the ACI as we already have the resource group and CosmosDB instance).  So let's go ahead and just deploy:
 
 ```
@@ -413,7 +413,7 @@ azurerm_container_group.aci-iexcompanies: Creation complete after 5s (ID: /subsc
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
 
-## Check the ACI deployment and get the IP address
+### Check the ACI deployment and get the IP address
 Use the *az* cli, Cloud Shell or the Portal to check on the deployment status.
 
 ```
@@ -469,7 +469,7 @@ azurerm_cosmosdb_account.cosmosdb: Destroying... (ID: /subscriptions/63bb1026-[s
 [snip]
 ```
 
-# It's Alive!
+# Bring it back to life
 And let's create the whole thing again now that we have all the architecture defined.
 
 ```
