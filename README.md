@@ -425,7 +425,7 @@ iexcompanies  terraformonazure  Creating             inklin/iexcompanies  52.170
 
 Once the deployment is complete you can ping the endpoint to see if everything is working as expected.
 
-![alt text](images/running.png "It works!")
+![alt text](images/running.PNG "It works!")
 
 # Destroy!
 So that was great, we iterated through and created a 2-tier architecture, a pattern to automate the deployment of a Docker container with a backing service.
