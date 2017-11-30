@@ -1,5 +1,5 @@
 # Terraform On Azure
-A few examples of using Terraform on Azure for your IAC needs
+A few examples of using Terraform on Azure for your Infrastructure as Code needs.
 
 ## Setup your environment
 
@@ -24,7 +24,7 @@ AppId                                 DisplayName                    Name       
 ec07b39a-[snip]-ba76ffe3892c  azure-cli-2017-11-29-20-13-29  http://azure-cli-2017-11-29-20-13-29  9184af04-[snip]-225ad6896b03  72f988bf-[snip]-2d7cd011db47
 ```
 
-### Setup Terraform variables for Service Principal
+## Setup Terraform variables for Service Principal
 All of our terraform scripts will need to know the Service Principal details.  
 
 ```
@@ -49,7 +49,7 @@ variable "subscription_id" {
 }
 ```
 
-## Cloud Shell
+### Cloud Shell
 Instead of installing the Azure CLI, setting up a Service Principal and the rest of the Terraform Variables you can use the Azure Portal Cloud Shell.
 
 We have made the Terraform experience as simple as possible, as all of the environment details are setup based on your default account through the Azure CLI.
